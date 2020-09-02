@@ -1,0 +1,18 @@
+{
+    "name": "laravel-shift/package-registry",
+    "description": "A registry of core Laravel and community package dependencies",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shift",
+            "email": "support@laravelshift.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Shift\\Packages\\": "src/"
+        }
+    }
+}
