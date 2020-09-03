@@ -8,7 +8,7 @@ return [
         'arcanedev/log-viewer' => ['type' => 'require', 'constraint' => '^7.0'],
         'aws/aws-sdk-php' => ['type' => 'require', 'constraint' => '^3.151'],
         'aws/aws-sdk-php-laravel' => ['type' => 'require', 'constraint' => '^3.5'],
-        'barryvdh/laravel-debugbar' => ['type' => 'require', 'constraint' => '^3.4'],
+        'barryvdh/laravel-debugbar' => ['type' => 'require-dev', 'constraint' => '^3.4'],
         'barryvdh/laravel-dompdf' => ['type' => 'require', 'constraint' => '^0.8'],
         'barryvdh/laravel-ide-helper' => ['type' => 'require-dev', 'constraint' => '^2.8'],
         'barryvdh/laravel-snappy' => ['type' => 'require', 'constraint' => '^0.4'],
