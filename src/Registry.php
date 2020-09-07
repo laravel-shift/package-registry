@@ -84,6 +84,27 @@ class Registry
         ];
     }
 
+    /**
+     * Returns the constraint used by the specified Laravel
+     * version for the included Symfony components.
+     *
+     * @param string $version 'latest', '8.x', '7.x', '6.x'
+     * @return string
+     */
+    public static function symfonyConstraintFor(string $version): string
+    {
+        static $constraints = [
+            'latest' => '^5.1',
+            '8.x' => '^5.1',
+            '7.x' => '^5.0',
+            '6.x' => '^4.3.4',
+        ];
+
+        self::verifyVersion($version);
+
+        return $constraints[$version];
+    }
+
     private static function corePackages(string $version)
     {
         static $packages = null;
