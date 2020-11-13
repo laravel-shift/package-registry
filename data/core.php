@@ -22,7 +22,7 @@ return [
         'laravel/tinker' => ['type' => 'require', 'constraints' => ['earliest' => '^2.0', 'latest' => '^2.5']],
         'mockery/mockery' => ['type' => 'require-dev', 'constraints' => ['earliest' => '^1.3.1', 'latest' => '^1.4.2']],
         'nunomaduro/collision' => ['type' => 'require-dev', 'constraints' => ['earliest' => '^5.0', 'latest' => '^5.0']],
-        'php' => ['type' => 'require', 'constraints' => ['earliest' => '^7.3', 'latest' => '^8.0']],
+        'php' => ['type' => 'require', 'constraints' => ['earliest' => '^7.3', 'latest' => '^7.3|^8.0']],
         'phpunit/phpunit' => ['type' => 'require-dev', 'constraints' => ['earliest' => '^9.3', 'latest' => '^9.3.3']],
     ],
     '7.x' => [
