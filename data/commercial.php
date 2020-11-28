@@ -2,11 +2,11 @@
 
 return [
     'latest' => [
-        'laravel/nova' => ['type' => 'require', 'constraint' => '^3.9'],
+        'laravel/nova' => ['type' => 'require', 'constraint' => '^3.15'],
         'laravel/spark-aurelius' => ['type' => 'require', 'constraint' => '~10.0'],
     ],
     '8.x' => [
-        'laravel/nova' => ['type' => 'require', 'constraints' => ['earliest' => '^3.9', 'latest' => '^3.9']],
+        'laravel/nova' => ['type' => 'require', 'constraints' => ['earliest' => '^3.10', 'latest' => '^3.15']],
         'laravel/spark-aurelius' => ['type' => 'require', 'constraints' => ['earliest' => '~10.0', 'latest' => '~10.0']],
     ],
     '7.x' => [
