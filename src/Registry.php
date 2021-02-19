@@ -110,7 +110,7 @@ class Registry
         static $packages = null;
 
         if (is_null($packages)) {
-            $packages = require __DIR__ . '/../data/core.php';
+            $packages = json_decode(file_get_contents(__DIR__ . '/../data/laravel-core.json'), true);
         }
 
         return $packages[$version];
@@ -121,10 +121,7 @@ class Registry
         static $packages = null;
 
         if (is_null($packages)) {
-            $packages = array_merge_recursive(
-                require __DIR__ . '/../data/community.php',
-                require __DIR__ . '/../data/commercial.php'
-            );
+            $packages = json_decode(file_get_contents(__DIR__ . '/../data/laravel-packages.json'), true);
         }
 
         return $packages[$version];
