@@ -45,6 +45,23 @@ class Registry
     }
 
     /**
+     * Returns the latest tagged Laravel release for the series.
+     *
+     * @param string $series 'lts', 'latest'
+     * @return string
+     */
+    public static function tagForSeries($series = null): string
+    {
+        $tags = self::tags();
+
+        if ($series === 'lts') {
+            return $tags['lts'];
+        }
+
+        return $tags['latest'];
+    }
+
+    /**
      * Returns a list of all Illuminate packages.
      *
      * @return array
@@ -125,6 +142,17 @@ class Registry
         }
 
         return $packages[$version];
+    }
+
+    private static function tags()
+    {
+        static $packages = null;
+
+        if (is_null($packages)) {
+            $packages = json_decode(file_get_contents(__DIR__ . '/../data/laravel-tags.json'), true);
+        }
+
+        return $packages['tags'];
     }
 
     private static function pluckLatestConstraint($packages): array
