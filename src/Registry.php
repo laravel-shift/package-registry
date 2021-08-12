@@ -8,40 +8,42 @@ class Registry
      * Returns the type and constraint of packages included
      * in a Laravel project for the specified version.
      *
-     * @param string $version 'latest', '8.x', '7.x', '6.x'
+     * @param string $laravel 'latest', '8.x', '7.x', '6.x'
      * @return array
      */
-    public static function corePackagesFor(string $version): array
+    public static function corePackagesFor(string $laravel): array
     {
-        self::verifyVersion($version);
+        self::verifyLaravelVersion($laravel);
 
-        $packages = self::corePackages($version);
+        $packages = self::corePackages($laravel);
 
-        if ($version === 'latest') {
+        if ($laravel === 'latest') {
             return $packages;
         }
 
-        return self::pluckLatestConstraint($packages);
+        return self::pluckConstraints($packages);
     }
 
     /**
      * Returns the type and constraint of popular packages
      * in the Laravel community for the specified version.
      *
-     * @param string $version 'latest', '8.x', '7.x', '6.x'
+     * @param string $laravel 'latest', '8.x', '7.x', '6.x'
+     * @param string|null $php '8.0', '7.4', '7.3', or null to ignore
      * @return array
      */
-    public static function communityPackagesFor(string $version): array
+    public static function communityPackagesFor(string $laravel, string $php = null): array
     {
-        self::verifyVersion($version);
+        self::verifyLaravelVersion($laravel);
+        self::verifyPhpVersion($php);
 
-        $packages = self::communityPackages($version);
+        $packages = self::communityPackages($laravel);
 
-        if ($version === 'latest') {
+        if ($laravel === 'latest') {
             return $packages;
         }
 
-        return self::pluckLatestConstraint($packages);
+        return self::pluckConstraints($packages, $php ?? 'latest');
     }
 
     /**
@@ -117,7 +119,7 @@ class Registry
             '6.x' => '^4.3.4',
         ];
 
-        self::verifyVersion($version);
+        self::verifyLaravelVersion($version);
 
         return $constraints[$version];
     }
@@ -155,24 +157,35 @@ class Registry
         return $packages['tags'];
     }
 
-    private static function pluckLatestConstraint($packages): array
+    private static function pluckConstraints($packages, $constraint = 'latest'): array
     {
         $latest = [];
 
         foreach ($packages as $name => $attributes) {
             $latest[$name] = [
                 'type' => $attributes['type'],
-                'constraint' => $attributes['constraints']['latest'],
+                'constraint' => $attributes['constraints'][$constraint] ?? $attributes['constraints']['latest'],
             ];
         }
 
         return $latest;
     }
 
-    private static function verifyVersion(string $version)
+    private static function verifyLaravelVersion(string $version)
     {
         if (!in_array($version, ['latest', '8.x', '7.x', '6.x'])) {
-            throw new \InvalidArgumentException(sprintf('Unexpected version (%s), version must be: latest, 8.x, 7.x, or 6.x', $version));
+            throw new \InvalidArgumentException(sprintf('Unexpected Laravel version (%s), version must be: latest, 8.x, 7.x, or 6.x', $version));
+        }
+    }
+
+    private static function verifyPhpVersion(?string $version)
+    {
+        if (is_null($version)) {
+            return;
+        }
+
+        if (!in_array($version, ['8.0', '7.4', '7.3'])) {
+            throw new \InvalidArgumentException(sprintf('Unexpected PHP version (%s), version must be: 8.0, 7.4, or 7.3', $version));
         }
     }
 }
