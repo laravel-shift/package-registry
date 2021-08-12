@@ -4,10 +4,6 @@
             "type": "require-dev",
             "constraint": "^2.5"
         },
-        "fideloper/proxy": {
-            "type": "require",
-            "constraint": "^4.4"
-        },
         "fruitcake/laravel-cors": {
             "type": "require",
             "constraint": "^2.0"
@@ -47,13 +43,6 @@
             "constraints": {
                 "earliest": "^2.3.6",
                 "latest": "^2.5"
-            }
-        },
-        "fideloper/proxy": {
-            "type": "require",
-            "constraints": {
-                "earliest": "^4.2",
-                "latest": "^4.4"
             }
         },
         "fruitcake/laravel-cors": {
