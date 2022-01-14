@@ -37,6 +37,92 @@
             "constraint": "^9.3.3"
         }
     },
+    "9.x": {
+        "php": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^8.0",
+                "latest": "^8.0"
+            }
+        },
+        "fruitcake/laravel-cors": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^2.0.5",
+                "latest": "^2.0.5"
+            }
+        },
+        "guzzlehttp/guzzle": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^7.2",
+                "latest": "^7.2"
+            }
+        },
+        "laravel/framework": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^9.0",
+                "latest": "^9.0"
+            }
+        },
+        "laravel/sanctum": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^2.14",
+                "latest": "^2.14"
+            }
+        },
+        "laravel/tinker": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^2.7}",
+                "latest": "^2.7}"
+            }
+        },
+        "fakerphp/faker": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.9.1",
+                "latest": "^1.9.1"
+            }
+        },
+        "laravel/sail": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.0.1",
+                "latest": "^1.0.1"
+            }
+        },
+        "mockery/mockery": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.4.4",
+                "latest": "^1.4.4"
+            }
+        },
+        "nunomaduro/collision": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^6.0",
+                "latest": "^6.0"
+            }
+        },
+        "phpunit/phpunit": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^9.5.10",
+                "latest": "^9.5.10"
+            }
+        },
+        "spatie/laravel-ignition": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.0",
+                "latest": "^1.0"
+            }
+        }
+    },
     "8.x": {
         "facade/ignition": {
             "type": "require-dev",
