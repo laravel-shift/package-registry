@@ -173,8 +173,8 @@ class Registry
 
     private static function verifyLaravelVersion(string $version)
     {
-        if (!in_array($version, ['latest', '8.x', '7.x', '6.x'])) {
-            throw new \InvalidArgumentException(sprintf('Unexpected Laravel version (%s), version must be: latest, 8.x, 7.x, or 6.x', $version));
+        if (!in_array($version, ['latest', '9.x', '8.x', '7.x', '6.x'])) {
+            throw new \InvalidArgumentException(sprintf('Unexpected Laravel version (%s), version must be: latest, 9.x, 8.x, 7.x, or 6.x', $version));
         }
     }
 
@@ -184,8 +184,8 @@ class Registry
             return;
         }
 
-        if (!in_array($version, ['8.0', '7.4', '7.3'])) {
-            throw new \InvalidArgumentException(sprintf('Unexpected PHP version (%s), version must be: 8.0, 7.4, or 7.3', $version));
+        if (!in_array($version, ['8.1', '8.0', '7.4', '7.3'])) {
+            throw new \InvalidArgumentException(sprintf('Unexpected PHP version (%s), version must be: 8.1, 8.0, 7.4, or 7.3', $version));
         }
     }
 }
