@@ -76,8 +76,8 @@
         "laravel/tinker": {
             "type": "require",
             "constraints": {
-                "earliest": "^2.7}",
-                "latest": "^2.7}"
+                "earliest": "^2.7",
+                "latest": "^2.7"
             }
         },
         "fakerphp/faker": {
