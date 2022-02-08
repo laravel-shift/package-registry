@@ -113,7 +113,8 @@ class Registry
     public static function symfonyConstraintFor(string $version): string
     {
         static $constraints = [
-            'latest' => '^5.1.4',
+            'latest' => '^6.0',
+            '9.x' => '^6.0',
             '8.x' => '^5.1.4',
             '7.x' => '^5.0',
             '6.x' => '^4.3.4',
