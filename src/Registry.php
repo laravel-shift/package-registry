@@ -56,11 +56,8 @@ class Registry
     {
         $tags = self::tags();
 
-        if ($series === 'lts') {
-            return $tags['lts'];
-        }
-
-        return $tags['latest'];
+        // Laravel 9 is LTS & Latest
+        return $tags['lts'];
     }
 
     /**
