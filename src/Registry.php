@@ -7,9 +7,6 @@ class Registry
     /**
      * Returns the type and constraint of packages included
      * in a Laravel project for the specified version.
-     *
-     * @param string $laravel 'latest', '8.x', '7.x', '6.x'
-     * @return array
      */
     public static function corePackagesFor(string $laravel): array
     {
@@ -27,10 +24,6 @@ class Registry
     /**
      * Returns the type and constraint of popular packages
      * in the Laravel community for the specified version.
-     *
-     * @param string $laravel 'latest', '8.x', '7.x', '6.x'
-     * @param string|null $php '8.0', '7.4', '7.3', or null to ignore
-     * @return array
      */
     public static function communityPackagesFor(string $laravel, string $php = null): array
     {
@@ -48,9 +41,6 @@ class Registry
 
     /**
      * Returns the latest tagged Laravel release for the series.
-     *
-     * @param string $series 'lts', 'latest'
-     * @return string
      */
     public static function tagForSeries($series = null): string
     {
@@ -63,9 +53,6 @@ class Registry
     /**
      * Returns the constraint used by the specified Laravel
      * version for the included Symfony components.
-     *
-     * @param string $version 'latest', '8.x', '7.x', '6.x'
-     * @return string
      */
     public static function symfonyConstraintFor(string $version): string
     {
@@ -84,8 +71,6 @@ class Registry
 
     /**
      * Returns a list of all Illuminate packages.
-     *
-     * @return array
      */
     public static function illuminatePackages(): array
     {
@@ -124,8 +109,6 @@ class Registry
 
     /**
      * Returns a list of all core Symfony packages.
-     *
-     * @return array
      */
     public static function symfonyPackages(): array
     {
