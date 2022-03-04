@@ -4,10 +4,6 @@
             "type": "require-dev",
             "constraint": "^2.5"
         },
-        "fruitcake/laravel-cors": {
-            "type": "require",
-            "constraint": "^2.0"
-        },
         "fakerphp/faker": {
             "type": "require-dev",
             "constraint": "^1.9.1"
