@@ -38,7 +38,7 @@
             "type": "require",
             "constraints": {
                 "earliest": "^8.0",
-                "latest": "^8.0"
+                "latest": "^8.0.2"
             }
         },
         "guzzlehttp/guzzle": {
@@ -59,7 +59,7 @@
             "type": "require",
             "constraints": {
                 "earliest": "^2.14",
-                "latest": "^2.14"
+                "latest": "^3.0"
             }
         },
         "laravel/tinker": {
@@ -80,7 +80,14 @@
             "type": "require-dev",
             "constraints": {
                 "earliest": "^1.0.1",
-                "latest": "^1.0.1"
+                "latest": "^1.15"
+            }
+        },
+        "laravel/pint": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.0",
+                "latest": "^1.1"
             }
         },
         "mockery/mockery": {
@@ -94,7 +101,7 @@
             "type": "require-dev",
             "constraints": {
                 "earliest": "^6.1",
-                "latest": "^6.1"
+                "latest": "^6.3"
             }
         },
         "phpunit/phpunit": {
