@@ -115,7 +115,7 @@
             "type": "require-dev",
             "constraints": {
                 "earliest": "^1.0",
-                "latest": "^1.0"
+                "latest": "^1.4"
             }
         }
     },
