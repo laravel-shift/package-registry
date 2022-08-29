@@ -26,7 +26,7 @@
         },
         "php": {
             "type": "require",
-            "constraint": "^7.3|^8.0"
+            "constraint": "^8.0"
         },
         "phpunit/phpunit": {
             "type": "require-dev",
@@ -38,7 +38,7 @@
             "type": "require",
             "constraints": {
                 "earliest": "^8.0",
-                "latest": "^8.0.2"
+                "latest": "^8.0"
             }
         },
         "guzzlehttp/guzzle": {
