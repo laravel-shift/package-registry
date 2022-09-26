@@ -25,7 +25,7 @@ class Registry
      * Returns the type and constraint of popular packages
      * in the Laravel community for the specified version.
      */
-    public static function communityPackagesFor(string $laravel, string $php = null): array
+    public static function communityPackagesFor(string $laravel, string $php = null, string $constraint = 'latest'): array
     {
         self::verifyLaravelVersion($laravel);
         self::verifyPhpVersion($php);
@@ -36,7 +36,7 @@ class Registry
             return $packages;
         }
 
-        return self::pluckConstraints($packages, $php ?? 'latest');
+        return self::pluckConstraints($packages, $constraint, $php);
     }
 
     /**
@@ -268,14 +268,14 @@ class Registry
         return $packages['tags'];
     }
 
-    private static function pluckConstraints($packages, $constraint = 'latest'): array
+    private static function pluckConstraints($packages, $constraint = 'latest', $php = null): array
     {
         $latest = [];
 
         foreach ($packages as $name => $attributes) {
             $latest[$name] = [
                 'type' => $attributes['type'],
-                'constraint' => $attributes['constraints'][$constraint] ?? $attributes['constraints']['latest'],
+                'constraint' => $php && isset($attributes['constraints'][$php][$constraint]) ? $attributes['constraints'][$php][$constraint] : $attributes['constraints'][$constraint],
             ];
         }
 
