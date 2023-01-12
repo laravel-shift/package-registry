@@ -33,6 +33,85 @@
             "constraint": "^9.3.3"
         }
     },
+    "10.x": {
+        "php": {
+            "type": "requirement",
+            "constraints": {
+                "earliest": "^8.1",
+                "latest": "^8.1"
+            }
+        },
+        "guzzlehttp/guzzle": {
+            "type": "requirement",
+            "constraints": {
+                "earliest": "^7.2",
+                "latest": "^7.2"
+            }
+        },
+        "laravel/sanctum": {
+            "type": "requirement",
+            "constraints": {
+                "earliest": "^3.2",
+                "latest": "^3.2"
+            }
+        },
+        "laravel/tinker": {
+            "type": "requirement",
+            "constraints": {
+                "earliest": "^2.8",
+                "latest": "^2.8"
+            }
+        },
+        "fakerphp/faker": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.9.1",
+                "latest": "^1.9.1"
+            }
+        },
+        "laravel/pint": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.0",
+                "latest": "^1.0"
+            }
+        },
+        "laravel/sail": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.18",
+                "latest": "^1.18"
+            }
+        },
+        "mockery/mockery": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.4.4",
+                "latest": "^1.4.4"
+            }
+        },
+        "nunomaduro/collision": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^6.1",
+                "latest": "^6.1"
+            }
+        },
+        "phpunit/phpunit": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^9.5.10",
+                "latest": "^9.5.10"
+            }
+        },
+        "spatie/laravel-ignition": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "dev-l10",
+                "latest": "dev-l10"
+            }
+        }
+    },
     "9.x": {
         "php": {
             "type": "require",
