@@ -107,8 +107,8 @@
         "spatie/laravel-ignition": {
             "type": "require-dev",
             "constraints": {
-                "earliest": "dev-l10",
-                "latest": "dev-l10"
+                "earliest": "^2.0",
+                "latest": "^2.0"
             }
         }
     },
