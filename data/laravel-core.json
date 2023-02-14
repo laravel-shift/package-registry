@@ -93,7 +93,7 @@
         "nunomaduro/collision": {
             "type": "require-dev",
             "constraints": {
-                "earliest": "^6.1",
+                "earliest": "^7.0",
                 "latest": "^6.1"
             }
         },
