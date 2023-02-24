@@ -41,13 +41,16 @@ class Registry
 
     /**
      * Returns the latest tagged Laravel release for the series.
+     *
+     * @param string $series "latest" or "prior"
      */
-    public static function tagForSeries($series = null): string
+    public static function tagForSeries($series = 'latest'): string
     {
-        $tags = self::tags();
+        if (!in_array($series, ['latest', 'prior'])) {
+            throw new \InvalidArgumentException(sprintf('Unexpected Laravel series (%s), series must be: latest or prior', $series));
+        }
 
-        // Laravel 9 is LTS & Latest
-        return $tags['lts'];
+        return self::tags()[$series];
     }
 
     /**
