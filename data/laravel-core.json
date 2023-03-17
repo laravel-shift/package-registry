@@ -94,14 +94,14 @@
             "type": "require-dev",
             "constraints": {
                 "earliest": "^7.0",
-                "latest": "^6.1"
+                "latest": "^7.0"
             }
         },
         "phpunit/phpunit": {
             "type": "require-dev",
             "constraints": {
-                "earliest": "^9.5.10",
-                "latest": "^9.5.10"
+                "earliest": "^10.0",
+                "latest": "^10.0"
             }
         },
         "spatie/laravel-ignition": {
