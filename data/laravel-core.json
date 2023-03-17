@@ -1,8 +1,8 @@
 {
     "latest": {
-        "facade/ignition": {
+        "spatie/laravel-ignition": {
             "type": "require-dev",
-            "constraint": "^2.5"
+            "constraint": "^2.0"
         },
         "fakerphp/faker": {
             "type": "require-dev",
@@ -10,11 +10,11 @@
         },
         "guzzlehttp/guzzle": {
             "type": "require",
-            "constraint": "^7.0.1"
+            "constraint": "^7.2"
         },
         "laravel/tinker": {
             "type": "require",
-            "constraint": "^2.5"
+            "constraint": "^2.8"
         },
         "mockery/mockery": {
             "type": "require-dev",
@@ -22,15 +22,15 @@
         },
         "nunomaduro/collision": {
             "type": "require-dev",
-            "constraint": "^5.10"
+            "constraint": "^7.0"
         },
         "php": {
             "type": "require",
-            "constraint": "^8.0"
+            "constraint": "^8.1"
         },
         "phpunit/phpunit": {
             "type": "require-dev",
-            "constraint": "^9.3.3"
+            "constraint": "^10.0"
         }
     },
     "10.x": {
