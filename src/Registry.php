@@ -25,7 +25,7 @@ class Registry
      * Returns the type and constraint of popular packages
      * in the Laravel community for the specified version.
      */
-    public static function communityPackagesFor(string $laravel, string $php = null, string $constraint = 'latest'): array
+    public static function communityPackagesFor(string $laravel, ?string $php = null, string $constraint = 'latest'): array
     {
         self::verifyLaravelVersion($laravel);
         self::verifyPhpVersion($php);
@@ -42,11 +42,11 @@ class Registry
     /**
      * Returns the latest tagged Laravel release for the series.
      *
-     * @param string $series "latest" or "prior"
+     * @param  string  $series "latest" or "prior"
      */
     public static function tagForSeries($series = 'latest'): string
     {
-        if (!in_array($series, ['latest', 'prior'])) {
+        if (! in_array($series, ['latest', 'prior'])) {
             throw new \InvalidArgumentException(sprintf('Unexpected Laravel series (%s), series must be: latest or prior', $series));
         }
 
@@ -61,6 +61,7 @@ class Registry
     {
         static $constraints = [
             'latest' => '^6.0',
+            '11.x' => '^7.0',
             '10.x' => '^6.2',
             '9.x' => '^6.0',
             '8.x' => '^5.4',
@@ -244,7 +245,7 @@ class Registry
         static $packages = null;
 
         if (is_null($packages)) {
-            $packages = json_decode(file_get_contents(__DIR__ . '/../data/laravel-core.json'), true);
+            $packages = json_decode(file_get_contents(__DIR__.'/../data/laravel-core.json'), true);
         }
 
         return $packages[$version];
@@ -255,7 +256,7 @@ class Registry
         static $packages = null;
 
         if (is_null($packages)) {
-            $packages = json_decode(file_get_contents(__DIR__ . '/../data/laravel-packages.json'), true);
+            $packages = json_decode(file_get_contents(__DIR__.'/../data/laravel-packages.json'), true);
         }
 
         return $packages[$version];
@@ -266,7 +267,7 @@ class Registry
         static $packages = null;
 
         if (is_null($packages)) {
-            $packages = json_decode(file_get_contents(__DIR__ . '/../data/laravel-tags.json'), true);
+            $packages = json_decode(file_get_contents(__DIR__.'/../data/laravel-tags.json'), true);
         }
 
         return $packages['tags'];
@@ -288,8 +289,8 @@ class Registry
 
     private static function verifyLaravelVersion(string $version)
     {
-        if (!in_array($version, ['latest', '10.x', '9.x', '8.x', '7.x', '6.x'])) {
-            throw new \InvalidArgumentException(sprintf('Unexpected Laravel version (%s), version must be: latest, 10.x, 9.x, 8.x, 7.x, or 6.x', $version));
+        if (! in_array($version, ['latest', '11.x', '10.x', '9.x', '8.x', '7.x', '6.x'])) {
+            throw new \InvalidArgumentException(sprintf('Unexpected Laravel version (%s), version must be: latest, 11.x, 10.x, 9.x, 8.x, 7.x, or 6.x', $version));
         }
     }
 
@@ -299,8 +300,8 @@ class Registry
             return;
         }
 
-        if (!in_array($version, ['8.2', '8.1', '8.0', '7.4', '7.3'])) {
-            throw new \InvalidArgumentException(sprintf('Unexpected PHP version (%s), version must be: 8.2, 8.1, 8.0, 7.4, or 7.3', $version));
+        if (! in_array($version, ['8.3', '8.2', '8.1', '8.0', '7.4', '7.3'])) {
+            throw new \InvalidArgumentException(sprintf('Unexpected PHP version (%s), version must be: 8.3, 8.2, 8.1, 8.0, 7.4, or 7.3', $version));
         }
     }
 }

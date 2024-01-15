@@ -33,6 +33,78 @@
             "constraint": "^10.0"
         }
     },
+    "11.x": {
+        "php": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^8.2",
+                "latest": "^8.2"
+            }
+        },
+        "guzzlehttp/guzzle": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^7.8",
+                "latest": "^7.8"
+            }
+        },
+        "laravel/tinker": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^2.9",
+                "latest": "^2.9"
+            }
+        },
+        "fakerphp/faker": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.23",
+                "latest": "^1.23"
+            }
+        },
+        "laravel/pint": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.13",
+                "latest": "^1.13"
+            }
+        },
+        "laravel/sail": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.26",
+                "latest": "^1.26"
+            }
+        },
+        "mockery/mockery": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.6",
+                "latest": "^1.6"
+            }
+        },
+        "nunomaduro/collision": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^8.0",
+                "latest": "^8.0"
+            }
+        },
+        "phpunit/phpunit": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^10.5",
+                "latest": "^10.5"
+            }
+        },
+        "spatie/laravel-ignition": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^2.4",
+                "latest": "^2.4"
+            }
+        }
+    },
     "10.x": {
         "php": {
             "type": "require",
@@ -125,13 +197,6 @@
             "constraints": {
                 "earliest": "^7.2",
                 "latest": "^7.2"
-            }
-        },
-        "laravel/framework": {
-            "type": "require",
-            "constraints": {
-                "earliest": "^9.0",
-                "latest": "^9.0"
             }
         },
         "laravel/sanctum": {
