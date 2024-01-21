@@ -124,7 +124,7 @@
             "type": "require",
             "constraints": {
                 "earliest": "^3.2",
-                "latest": "^3.2"
+                "latest": "^3.3"
             }
         },
         "laravel/tinker": {
