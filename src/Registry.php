@@ -18,7 +18,10 @@ class Registry
             return $packages;
         }
 
-        return self::pluckConstraints($packages);
+        return array_map(
+            fn ($package) => ['type' => $package['type'], 'constraint' => $package['constraints']['latest']],
+            $packages
+        );
     }
 
     /**
@@ -33,7 +36,10 @@ class Registry
         $packages = self::communityPackages($laravel);
 
         if ($laravel === 'latest') {
-            return $packages;
+            return array_map(
+                fn ($package) => ['type' => $package[0], 'constraint' => $package[1]],
+                $packages
+            );
         }
 
         return self::pluckConstraints($packages, $constraint, $php);
@@ -42,15 +48,15 @@ class Registry
     /**
      * Returns the latest tagged Laravel release for the series.
      *
-     * @param  string  $series "latest" or "prior"
+     * @param  string  $series  "latest" or "prior"
      */
-    public static function tagForSeries($series = 'latest'): string
+    public static function tagForSeries($series = 'latest'): ?string
     {
         if (! in_array($series, ['latest', 'prior'])) {
             throw new \InvalidArgumentException(sprintf('Unexpected Laravel series (%s), series must be: latest or prior', $series));
         }
 
-        return self::tags()[$series];
+        return self::tags()[$series] ?? null;
     }
 
     /**
@@ -60,7 +66,7 @@ class Registry
     public static function symfonyConstraintFor(string $version): string
     {
         static $constraints = [
-            'latest' => '^6.0',
+            'latest' => '^6.2',
             '11.x' => '^7.0',
             '10.x' => '^6.2',
             '9.x' => '^6.0',
@@ -277,10 +283,15 @@ class Registry
     {
         $latest = [];
 
+        $constraint = intval($constraint === 'latest');
+
         foreach ($packages as $name => $attributes) {
+            if (! isset($attributes[1]['*'])) {
+                echo $name, PHP_EOL;
+            }
             $latest[$name] = [
-                'type' => $attributes['type'],
-                'constraint' => $php && isset($attributes['constraints'][$php][$constraint]) ? $attributes['constraints'][$php][$constraint] : $attributes['constraints'][$constraint],
+                'type' => $attributes[0],
+                'constraint' => $php && isset($attributes[1][$php][$constraint]) ? $attributes[1][$php][$constraint] : $attributes[1]['*'][$constraint],
             ];
         }
 

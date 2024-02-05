@@ -19,11 +19,6 @@
     },
     "scripts": {
         "download-tags": "curl -so data/laravel-tags.json https://laravelshift.com/api/tags",
-        "download-packages": "curl -so data/laravel-packages.json https://laravelshift.com/api/packages",
-        "test": [
-            "@download-packages",
-            "@download-tags",
-            "vendor/bin/phpunit"
-        ]
+        "download-packages": "curl -so data/laravel-packages.json https://shift-cloud.s3.amazonaws.com/downloads/package-registry.json"
     }
 }
