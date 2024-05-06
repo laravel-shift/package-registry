@@ -30,7 +30,7 @@
         },
         "phpunit/phpunit": {
             "type": "require-dev",
-            "constraint": "^10.1"
+            "constraint": "^11.0.1"
         }
     },
     "11.x": {
@@ -87,7 +87,7 @@
             "type": "require-dev",
             "constraints": {
                 "earliest": "^10.5",
-                "latest": "^10.5"
+                "latest": "^11.0.1"
             }
         },
         "spatie/laravel-ignition": {
