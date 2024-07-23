@@ -31,8 +31,8 @@ class RegistryTest extends \PHPUnit\Framework\TestCase
     {
         $packages = Registry::communityPackagesFor('latest');
 
-        $this->assertSame(['type' => 'require-dev', 'constraint' => '^2.3'], $packages['jasonmccreary/laravel-test-assertions']);
-        $this->assertSame(['type' => 'require', 'constraint' => '^6.3'], $packages['spatie/laravel-permission']);
+        $this->assertSame(['type' => 'require-dev', 'constraint' => '^2.4'], $packages['jasonmccreary/laravel-test-assertions']);
+        $this->assertSame(['type' => 'require', 'constraint' => '^6.9'], $packages['spatie/laravel-permission']);
     }
 
     /** @test */
@@ -40,8 +40,8 @@ class RegistryTest extends \PHPUnit\Framework\TestCase
     {
         $packages = Registry::communityPackagesFor('latest', null, 'earliest');
 
-        $this->assertSame(['type' => 'require-dev', 'constraint' => '^2.3'], $packages['jasonmccreary/laravel-test-assertions']);
-        $this->assertSame(['type' => 'require', 'constraint' => '^6.3'], $packages['spatie/laravel-permission']);
+        $this->assertSame(['type' => 'require-dev', 'constraint' => '^2.4'], $packages['jasonmccreary/laravel-test-assertions']);
+        $this->assertSame(['type' => 'require', 'constraint' => '^6.9'], $packages['spatie/laravel-permission']);
     }
 
     /** @test */
@@ -50,7 +50,7 @@ class RegistryTest extends \PHPUnit\Framework\TestCase
         $packages = Registry::communityPackagesFor('8.x', '8.0');
 
         $this->assertSame(['type' => 'require-dev', 'constraint' => '^2.2'], $packages['jasonmccreary/laravel-test-assertions']);
-        $this->assertSame(['type' => 'require', 'constraint' => '^6.3'], $packages['spatie/laravel-permission']);
+        $this->assertSame(['type' => 'require', 'constraint' => '^6.9'], $packages['spatie/laravel-permission']);
     }
 
     /** @test */
@@ -72,17 +72,31 @@ class RegistryTest extends \PHPUnit\Framework\TestCase
     }
 
     /** @test */
+    public function it_returns_false_for_abandoned_package()
+    {
+        $packages = Registry::communityPackagesFor('latest');
+
+        $this->assertArrayNotHasKey('laravelcollective/html', $packages);
+    }
+
+    /** @test */
+    public function it_returns_abandoned_packages()
+    {
+        $this->assertSame(['laravelcollective/html'], Registry::abandonedPackages());
+    }
+
+    /** @test */
     public function it_returns_latest_tag_for_laravel()
     {
-        $this->assertSame('v10.43.0', Registry::tagForSeries());
-        $this->assertSame('v10.43.0', Registry::tagForSeries('latest'));
-        $this->assertNull(Registry::tagForSeries('prior'));
+        $this->assertSame('v10.48.16', Registry::tagForSeries('prior'));
+        $this->assertSame('v11.16.0', Registry::tagForSeries('latest'));
+        $this->assertSame('v11.16.0', Registry::tagForSeries());
     }
 
     /** @test */
     public function it_returns_symfony_version_for_laravel()
     {
-        $this->assertSame('^6.2', Registry::symfonyConstraintFor('latest'));
+        $this->assertSame('^7.0', Registry::symfonyConstraintFor('latest'));
         $this->assertSame('^7.0', Registry::symfonyConstraintFor('11.x'));
         $this->assertSame('^6.2', Registry::symfonyConstraintFor('10.x'));
         $this->assertSame('^6.0', Registry::symfonyConstraintFor('9.x'));

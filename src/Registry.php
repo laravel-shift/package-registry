@@ -5,6 +5,18 @@ namespace Shift\Packages;
 class Registry
 {
     /**
+     * Returns packages which have been marked as
+     * "abandoned" within Composer/Packagist.
+     */
+    public static function abandonedPackages(): array
+    {
+        return array_keys(array_filter(
+            self::communityPackages('latest'),
+            fn ($package) => $package === false
+        ));
+    }
+
+    /**
      * Returns the type and constraint of packages included
      * in a Laravel project for the specified version.
      */
@@ -38,7 +50,7 @@ class Registry
         if ($laravel === 'latest') {
             return array_map(
                 fn ($package) => ['type' => $package[0], 'constraint' => $package[1]],
-                $packages
+                array_filter($packages)
             );
         }
 
@@ -66,7 +78,7 @@ class Registry
     public static function symfonyConstraintFor(string $version): string
     {
         static $constraints = [
-            'latest' => '^6.2',
+            'latest' => '^7.0',
             '11.x' => '^7.0',
             '10.x' => '^6.2',
             '9.x' => '^6.0',
