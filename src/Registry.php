@@ -236,6 +236,7 @@ class Registry
             'symfony/spot-hit-notifier',
             'symfony/stopwatch',
             'symfony/string',
+            'symfony/symfony',
             'symfony/telegram-notifier',
             'symfony/telnyx-notifier',
             'symfony/templating',
