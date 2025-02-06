@@ -25,6 +25,71 @@
             "constraint": "^11.0.1"
         }
     },
+    "12.x": {
+        "php": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^8.2",
+                "latest": "^8.2"
+            }
+        },
+        "laravel/tinker": {
+            "type": "require",
+            "constraints": {
+                "earliest": "^2.10.1",
+                "latest": "^2.10.1"
+            }
+        },
+        "fakerphp/faker": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.23",
+                "latest": "^1.23"
+            }
+        },
+        "laravel/pail": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.2.2",
+                "latest": "^1.2.2"
+            }
+        },
+        "laravel/pint": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.13",
+                "latest": "^1.13"
+            }
+        },
+        "laravel/sail": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.41",
+                "latest": "^1.41"
+            }
+        },
+        "mockery/mockery": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.6",
+                "latest": "^1.6"
+            }
+        },
+        "nunomaduro/collision": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^8.1",
+                "latest": "^8.1"
+            }
+        },
+        "phpunit/phpunit": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "11.5.3",
+                "latest": "^11.5.3"
+            }
+        }
+    },
     "11.x": {
         "php": {
             "type": "require",
