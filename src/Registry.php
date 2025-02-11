@@ -260,37 +260,31 @@ class Registry
         ];
     }
 
-    private static function corePackages(string $version)
+    private static function corePackages(string $version): array
     {
         static $packages = null;
 
-        if (is_null($packages)) {
-            $packages = json_decode(file_get_contents(__DIR__.'/../data/laravel-core.json'), true);
-        }
+        $packages ??= json_decode(file_get_contents(__DIR__.'/../data/laravel-core.json'), true);
 
-        return $packages[$version];
+        return $packages[$version] ?? [];
     }
 
-    private static function communityPackages(string $version)
+    private static function communityPackages(string $version): array
     {
         static $packages = null;
 
-        if (is_null($packages)) {
-            $packages = json_decode(file_get_contents(__DIR__.'/../data/laravel-packages.json'), true);
-        }
+        $packages ??= json_decode(file_get_contents(__DIR__.'/../data/laravel-packages.json'), true);
 
-        return $packages[$version];
+        return $packages[$version] ?? [];
     }
 
     private static function tags()
     {
         static $packages = null;
 
-        if (is_null($packages)) {
-            $packages = json_decode(file_get_contents(__DIR__.'/../data/laravel-tags.json'), true);
-        }
+        $packages ??= json_decode(file_get_contents(__DIR__.'/../data/laravel-tags.json'), true);
 
-        return $packages['tags'];
+        return $packages['tags'] ?? [];
     }
 
     private static function pluckConstraints($packages, $constraint = 'latest', $php = null): array
@@ -312,14 +306,14 @@ class Registry
         return $latest;
     }
 
-    private static function verifyLaravelVersion(string $version)
+    private static function verifyLaravelVersion(string $version): void
     {
         if (! in_array($version, ['latest', '12.x', '11.x', '10.x', '9.x', '8.x', '7.x', '6.x'])) {
             throw new \InvalidArgumentException(sprintf('Unexpected Laravel version (%s), version must be: latest, 12.x, 11.x, 10.x, 9.x, 8.x, 7.x, or 6.x', $version));
         }
     }
 
-    private static function verifyPhpVersion(?string $version)
+    private static function verifyPhpVersion(?string $version): void
     {
         if (is_null($version)) {
             return;
