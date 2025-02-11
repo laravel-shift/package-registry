@@ -30,7 +30,7 @@
             "type": "require",
             "constraints": {
                 "earliest": "^8.2",
-                "latest": "^8.2"
+                "latest": "^8.4"
             }
         },
         "laravel/tinker": {
