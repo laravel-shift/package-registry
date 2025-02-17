@@ -78,8 +78,8 @@
         "nunomaduro/collision": {
             "type": "require-dev",
             "constraints": {
-                "earliest": "^8.1",
-                "latest": "^8.1"
+                "earliest": "^8.6",
+                "latest": "^8.6"
             }
         },
         "phpunit/phpunit": {
