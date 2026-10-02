@@ -2,27 +2,39 @@
     "latest": {
         "fakerphp/faker": {
             "type": "require-dev",
-            "constraint": "^1.9.1"
+            "constraint": "^1.23"
+        },
+        "laravel/pail": {
+            "type": "require-dev",
+            "constraint": "^1.2.5"
+        },
+        "laravel/pao": {
+            "type": "require-dev",
+            "constraint": "^1.0.6"
+        },
+        "laravel/pint": {
+            "type": "require-dev",
+            "constraint": "^1.27"
         },
         "laravel/tinker": {
             "type": "require",
-            "constraint": "^2.8"
+            "constraint": "^3.0"
         },
         "mockery/mockery": {
             "type": "require-dev",
-            "constraint": "^1.4.4"
+            "constraint": "^1.6"
         },
         "nunomaduro/collision": {
             "type": "require-dev",
-            "constraint": "^7.0"
+            "constraint": "^8.6"
         },
         "php": {
             "type": "require",
-            "constraint": "^8.1"
+            "constraint": "^8.3"
         },
         "phpunit/phpunit": {
             "type": "require-dev",
-            "constraint": "^11.0.1"
+            "constraint": "^12.5.12"
         }
     },
     "13.x": {

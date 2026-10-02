@@ -11,9 +11,9 @@ class RegistryTest extends \PHPUnit\Framework\TestCase
     {
         $packages = Registry::corePackagesFor('latest');
 
-        $this->assertSame(['type' => 'require', 'constraint' => '^8.1'], $packages['php']);
-        $this->assertSame(['type' => 'require', 'constraint' => '^2.8'], $packages['laravel/tinker']);
-        $this->assertSame(['type' => 'require-dev', 'constraint' => '^1.9.1'], $packages['fakerphp/faker']);
+        $this->assertSame(['type' => 'require', 'constraint' => '^8.3'], $packages['php']);
+        $this->assertSame(['type' => 'require', 'constraint' => '^3.0'], $packages['laravel/tinker']);
+        $this->assertSame(['type' => 'require-dev', 'constraint' => '^1.23'], $packages['fakerphp/faker']);
     }
 
     /** @test */
