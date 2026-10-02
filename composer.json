@@ -19,6 +19,7 @@
     },
     "scripts": {
         "download-tags": "curl -so data/laravel-tags.json https://laravelshift.com/api/tags",
-        "download-packages": "curl -so data/laravel-packages.json https://shift-cloud.s3.amazonaws.com/downloads/package-registry.json"
+        "download-packages": "curl -so data/laravel-packages.json https://shift-cloud.s3.amazonaws.com/downloads/package-registry.json",
+        "download-framework-packages": "php bin/download-framework-packages.php"
     }
 }

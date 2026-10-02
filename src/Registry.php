@@ -37,6 +37,18 @@ class Registry
     }
 
     /**
+     * Returns the runtime dependencies (package => constraint) of
+     * laravel/framework for the specified version, excluding PHP,
+     * extensions, Illuminate, and Symfony packages.
+     */
+    public static function frameworkPackagesFor(string $laravel): array
+    {
+        self::verifyLaravelVersion($laravel);
+
+        return self::frameworkPackages($laravel === 'latest' ? '13.x' : $laravel);
+    }
+
+    /**
      * Returns the type and constraint of popular packages
      * in the Laravel community for the specified version.
      */
@@ -271,6 +283,15 @@ class Registry
         static $packages = null;
 
         $packages ??= json_decode(file_get_contents(__DIR__.'/../data/laravel-core.json'), true);
+
+        return $packages[$version] ?? [];
+    }
+
+    private static function frameworkPackages(string $version): array
+    {
+        static $packages = null;
+
+        $packages ??= json_decode(file_get_contents(__DIR__.'/../data/laravel-framework.json'), true);
 
         return $packages[$version] ?? [];
     }

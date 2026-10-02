@@ -104,4 +104,38 @@ class RegistryTest extends \PHPUnit\Framework\TestCase
         $this->assertSame('^5.0', Registry::symfonyConstraintFor('7.x'));
         $this->assertSame('^4.3.4', Registry::symfonyConstraintFor('6.x'));
     }
+
+    /** @test */
+    public function it_returns_framework_packages_for_laravel_version()
+    {
+        $packages = Registry::frameworkPackagesFor('12.x');
+
+        $this->assertMatchesRegularExpression('/\^3(\.|\|)/', $packages['nesbot/carbon']);
+        $this->assertArrayHasKey('monolog/monolog', $packages);
+        $this->assertArrayNotHasKey('php', $packages);
+        $this->assertArrayNotHasKey('illuminate/support', $packages);
+        $this->assertArrayNotHasKey('symfony/console', $packages);
+    }
+
+    /** @test */
+    public function it_returns_framework_packages_for_every_laravel_version()
+    {
+        foreach (['latest', '13.x', '12.x', '11.x', '10.x', '9.x', '8.x', '7.x', '6.x'] as $version) {
+            $packages = Registry::frameworkPackagesFor($version);
+
+            $this->assertNotEmpty($packages, $version);
+            $this->assertArrayHasKey('nesbot/carbon', $packages, $version);
+            $this->assertArrayHasKey('monolog/monolog', $packages, $version);
+        }
+
+        $this->assertSame(Registry::frameworkPackagesFor('13.x'), Registry::frameworkPackagesFor('latest'));
+    }
+
+    /** @test */
+    public function it_rejects_unknown_version_for_framework_packages()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        Registry::frameworkPackagesFor('5.x');
+    }
 }
