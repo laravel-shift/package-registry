@@ -135,7 +135,7 @@
             "type": "require-dev",
             "constraints": {
                 "earliest": "^1.13",
-                "latest": "^1.13"
+                "latest": "^1.24"
             }
         },
         "laravel/sail": {
@@ -163,7 +163,7 @@
             "type": "require-dev",
             "constraints": {
                 "earliest": "11.5.3",
-                "latest": "^11.5.3"
+                "latest": "^11.5.50"
             }
         }
     },
@@ -214,7 +214,7 @@
             "type": "require-dev",
             "constraints": {
                 "earliest": "^8.0",
-                "latest": "^8.0"
+                "latest": "^8.1"
             }
         },
         "phpunit/phpunit": {
@@ -229,6 +229,13 @@
             "constraints": {
                 "earliest": "^2.4",
                 "latest": "^2.4"
+            }
+        },
+        "laravel/pail": {
+            "type": "require-dev",
+            "constraints": {
+                "earliest": "^1.1",
+                "latest": "^1.1"
             }
         }
     },
